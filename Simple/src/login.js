@@ -59,7 +59,7 @@ const LoginScreen = ({navigation}) => {
             <Pressable
               style={styles.buttonStyle}
               activeOpacity={0.5}
-              onPress={()=>navigation.navigate('Home')}>
+              onPress={()=>navigation.navigate('Tab')}>
               <Text style={styles.buttonTextStyle}>LOGIN</Text>
             </Pressable>
            
