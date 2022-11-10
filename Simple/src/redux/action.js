@@ -8,6 +8,6 @@ export const change = mode => dispatch => {
     payload: mode,
   });
 
-  console.log("modeState",mode)
+  // console.log("modeState",mode)
 };
 

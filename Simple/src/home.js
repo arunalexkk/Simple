@@ -7,7 +7,7 @@ const Home = () => {
 
     const modeState = useSelector(state => state.HomeReducer);
     const dispatch = useDispatch();
-    const [mode,changeMode] =useState()
+    const [mode,changeMode] =useState("light")
 
     useEffect(() => {
         console.log('render!',modeState);

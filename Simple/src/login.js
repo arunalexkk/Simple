@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState ,useEffect} from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -9,9 +9,39 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
  
-
+const DATA = ['1234','123456','123']
+//   {
+//     id: 'vineetha',
+//     name: 'vineetha',
+//   },
+//   {
+//     id: 'anita',
+//     name: 'anita',
+//   },
+//   {
+//     id: 'manu',
+//     name: 'manu',
+//   },
+// ];
  
 const LoginScreen = ({navigation}) => {
+const [username,setusername] = useState() 
+const [pass,setpass] = useState() 
+
+useEffect(() => {
+
+  return () => {
+    // setusername(null),
+    // setpass(null)
+  }
+})
+
+  const login_Names =(name)=>{
+    console.log("data",name)
+ 
+      return DATA.find(data => data == name ?navigation.navigate('Tab')
+        :alert("Invalid password"));
+     }; 
 
  
   return (
@@ -32,7 +62,7 @@ const LoginScreen = ({navigation}) => {
               <TextInput
                 style={styles.dataStyle}
                 onChangeText={(text) =>
-                  console.log(text)
+                  setusername(text)
                 }
                 placeholder="Name"
                 placeholderTextColor="#8b9cb5"
@@ -47,8 +77,9 @@ const LoginScreen = ({navigation}) => {
               <TextInput
                 style={styles.dataStyle}
                 onChangeText={(text) =>
-                    console.log(text)
+                    setpass(text)
                 }
+                autoCapitalize="none"
                 placeholder="Password"
                 placeholderTextColor="#8b9cb5"
                 keyboardType="default"
@@ -59,7 +90,7 @@ const LoginScreen = ({navigation}) => {
             <Pressable
               style={styles.buttonStyle}
               activeOpacity={0.5}
-              onPress={()=>navigation.navigate('Tab')}>
+              onPress={()=>login_Names(pass)}>
               <Text style={styles.buttonTextStyle}>LOGIN</Text>
             </Pressable>
            
@@ -105,7 +136,7 @@ const styles = StyleSheet.create({
   },
   dataStyle: {
     flex: 1,
-    color: 'white',
+    color: 'black',
     paddingLeft: 15,
     paddingRight: 15,
     borderWidth: 1,

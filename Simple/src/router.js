@@ -2,10 +2,8 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack'
-// import screens
 import Home from './home';
 import Settings from './settings';
-import { LogBox } from 'react-native';
 import LoginScreen from './login';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
