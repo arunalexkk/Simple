@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React, { useState ,useEffect} from 'react';
+import { useSelector ,useDispatch} from 'react-redux';
 import {
   StyleSheet,
   TextInput,
@@ -8,10 +9,29 @@ import {
   ScrollView,Pressable,
   KeyboardAvoidingView,
 } from 'react-native';
+import { login } from './redux/action';
  
+const DATA = ['1234','123456','123']
 
  
 const LoginScreen = ({navigation}) => {
+const dispatch = useDispatch();
+const signDetails = data => dispatch(login(data));
+const [username,setusername] = useState() 
+const [pass,setpass] = useState() 
+const [login_arr,setLogin_arr] = useState([]) 
+
+useEffect(() => {
+
+  return () => {
+   
+  }
+})
+
+  const loginData =async(name,pass)=>{
+
+    return DATA.find(data => data == name ?navigation.navigate('Tab'):alert("Invalid password"));
+     }; 
 
  
   return (
@@ -32,7 +52,7 @@ const LoginScreen = ({navigation}) => {
               <TextInput
                 style={styles.dataStyle}
                 onChangeText={(text) =>
-                  console.log(text)
+                  setusername(text)
                 }
                 placeholder="Name"
                 placeholderTextColor="#8b9cb5"
@@ -47,8 +67,9 @@ const LoginScreen = ({navigation}) => {
               <TextInput
                 style={styles.dataStyle}
                 onChangeText={(text) =>
-                    console.log(text)
+                    setpass(text)
                 }
+                autoCapitalize="none"
                 placeholder="Password"
                 placeholderTextColor="#8b9cb5"
                 keyboardType="default"
@@ -59,7 +80,7 @@ const LoginScreen = ({navigation}) => {
             <Pressable
               style={styles.buttonStyle}
               activeOpacity={0.5}
-              onPress={()=>navigation.navigate('Home')}>
+              onPress={()=>loginData(username,pass)}>
               <Text style={styles.buttonTextStyle}>LOGIN</Text>
             </Pressable>
            
@@ -105,7 +126,7 @@ const styles = StyleSheet.create({
   },
   dataStyle: {
     flex: 1,
-    color: 'white',
+    color: 'black',
     paddingLeft: 15,
     paddingRight: 15,
     borderWidth: 1,

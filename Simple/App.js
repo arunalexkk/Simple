@@ -6,7 +6,6 @@ import {store} from './src/redux/store';
 
 const App = () => {
   return (
-  // <RootNavigator />;
   <Provider store={store}>
   <RootNavigator />
 </Provider>
